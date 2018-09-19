@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Vue2 coexists with Vue1</title>
+</head>
+<body>
+<h1>Test Vue2 coexists with Vue1</h1>
+<pre>
+requirejs([
+  "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js",
+  "https://cdn.jsdelivr.net/npm/vue@1.0.28/dist/vue.min.js"
+], function(Vue2, Vue1) {
+  new Vue2(...);
+  new Vue1(...);
+}
+</pre>
+<div id="vue"></div> 
+<div id="vue1">
+  <h2>Vue1</h2>
+  <p>
+    count={{count}} <button @click="count++">+</button><br>
+    phases={{phases}}
+  </p>
+  <button @click="destroyMe">Destroy</button>
+</div> 
+<div id="vue2">
+  <h2>Vue2</h2>
+  <p>
+    count={{count}} <button @click="count++">+</button><br>
+    phases={{phases}}
+  </p>
+  <button @click="destroyMe">Destroy</button>
+</div> 
+<script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/requirejs@2.2.0/require.min.js" data-main="vue2-coexists-with-vue1.js"></script>
+</body>
+</html>
