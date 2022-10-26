@@ -1,5 +1,5 @@
 requirejs([
-  "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js",
+  "https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.min.js",
   "https://cdn.jsdelivr.net/npm/vue@1.0.28/dist/vue.min.js"
 ], function(Vue2, Vue1) {
   console.log("Vue2=" + Vue2);
