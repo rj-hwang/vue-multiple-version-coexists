@@ -1,9 +1,60 @@
-requirejs([
+require([
+  "https://cdn.jsdelivr.net/npm/vue-umd@3.2.31/dist/vue.umd.js",
   "https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.min.js",
   "https://cdn.jsdelivr.net/npm/vue@1.0.28/dist/vue.min.js"
-], function(Vue2, Vue1) {
+], function(Vue3, Vue2, Vue1) {
+  console.log("Vue3=" + Vue3);
   console.log("Vue2=" + Vue2);
   console.log("Vue1=" + Vue1);
+
+  const app3 = Vue3.createApp({
+    data() {
+      return {
+        phases: "init",
+        count: 0
+      }
+    },
+    beforeCreate: function(){
+      console.log("vue3: beforeCreate")
+      this.phases += " > beforeCreate";
+    },
+    created: function(){
+      console.log("vue3: created")
+      this.phases += " > created";
+    },
+    beforeMount: function(){
+      console.log("vue3: beforeMount")
+      this.phases += "> beforeMount";
+    },
+    mounted: function(){
+      console.log("vue3: mounted")
+      this.phases += " > mounted";
+    },
+    beforeUpdate: function(){
+      console.log("vue3: beforeUpdate")
+      this.phases += " > beforeUpdate";
+    },
+    updated: function(){
+      console.log("vue3: updated")
+    },
+    beforeUpdate: function(){
+      console.log("vue3: beforeUpdate")
+    },
+    beforeDestroy: function(){
+      this.phases += " > beforeDestroy";
+      console.log("vue3: beforeDestroy")
+    },
+    destroyed: function(){
+      this.phases += " > destroyed";
+      console.log("vue3: destroyed")
+    },
+    methods: {
+      destroyMe: function(){
+        app3.unmount();
+      }
+    }
+  });
+  app3.mount("#vue3");
 
   new Vue2({
     el: "#vue2",
